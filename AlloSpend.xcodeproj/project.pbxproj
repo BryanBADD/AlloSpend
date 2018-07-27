@@ -7,21 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		932ECA3C210838C000EC52D7 /* AddLedgerItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932ECA3B210838C000EC52D7 /* AddLedgerItemViewController.swift */; };
 		934CC4A22100412800208B05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934CC4A12100412800208B05 /* AppDelegate.swift */; };
-		934CC4A42100412800208B05 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934CC4A32100412800208B05 /* ViewController.swift */; };
+		934CC4A42100412800208B05 /* PayDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934CC4A32100412800208B05 /* PayDateViewController.swift */; };
 		934CC4A72100412800208B05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 934CC4A52100412800208B05 /* Main.storyboard */; };
 		934CC4A92100412900208B05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 934CC4A82100412900208B05 /* Assets.xcassets */; };
 		934CC4AC2100412900208B05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 934CC4AA2100412900208B05 /* LaunchScreen.storyboard */; };
+		934CC4B8210052DB00208B05 /* PayDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934CC4B7210052DB00208B05 /* PayDate.swift */; };
+		934CC4BA2100531700208B05 /* LedgerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934CC4B92100531700208B05 /* LedgerItem.swift */; };
+		93F47F7F21059BFC004816FE /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F47F7E21059BFC004816FE /* SwipeTableViewController.swift */; };
+		93F47F832105D036004816FE /* LedgerItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F47F822105D036004816FE /* LedgerItemViewController.swift */; };
+		D7BAE5270AB712AA07C252A6 /* Pods_AlloSpend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0728EF06BD09DF171E2BD3 /* Pods_AlloSpend.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E0728EF06BD09DF171E2BD3 /* Pods_AlloSpend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlloSpend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		34270DF508AA04FC15D0A6C5 /* Pods-AlloSpend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlloSpend.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlloSpend/Pods-AlloSpend.release.xcconfig"; sourceTree = "<group>"; };
+		932ECA3B210838C000EC52D7 /* AddLedgerItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLedgerItemViewController.swift; sourceTree = "<group>"; };
 		934CC49E2100412800208B05 /* AlloSpend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlloSpend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		934CC4A12100412800208B05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		934CC4A32100412800208B05 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		934CC4A32100412800208B05 /* PayDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayDateViewController.swift; sourceTree = "<group>"; };
 		934CC4A62100412800208B05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		934CC4A82100412900208B05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		934CC4AB2100412900208B05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		934CC4AD2100412900208B05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		934CC4B7210052DB00208B05 /* PayDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayDate.swift; sourceTree = "<group>"; };
+		934CC4B92100531700208B05 /* LedgerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerItem.swift; sourceTree = "<group>"; };
+		93F47F7E21059BFC004816FE /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
+		93F47F822105D036004816FE /* LedgerItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerItemViewController.swift; sourceTree = "<group>"; };
+		A89D95F23966F9FE937FE916 /* Pods-AlloSpend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlloSpend.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlloSpend/Pods-AlloSpend.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +43,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7BAE5270AB712AA07C252A6 /* Pods_AlloSpend.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C2ABFE9377D6476A66E6F50 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E0728EF06BD09DF171E2BD3 /* Pods_AlloSpend.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		934CC4952100412800208B05 = {
 			isa = PBXGroup;
 			children = (
 				934CC4A02100412800208B05 /* AlloSpend */,
 				934CC49F2100412800208B05 /* Products */,
+				C9869F34BEF20AE187A074E1 /* Pods */,
+				2C2ABFE9377D6476A66E6F50 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +80,59 @@
 			isa = PBXGroup;
 			children = (
 				934CC4A12100412800208B05 /* AppDelegate.swift */,
-				934CC4A32100412800208B05 /* ViewController.swift */,
-				934CC4A52100412800208B05 /* Main.storyboard */,
-				934CC4A82100412900208B05 /* Assets.xcassets */,
-				934CC4AA2100412900208B05 /* LaunchScreen.storyboard */,
+				934CC4B5210050A000208B05 /* Model */,
+				934CC4B32100506B00208B05 /* View */,
+				934CC4B42100509000208B05 /* Controller */,
+				934CC4B6210050B200208B05 /* Supporting Files */,
 				934CC4AD2100412900208B05 /* Info.plist */,
 			);
 			path = AlloSpend;
+			sourceTree = "<group>";
+		};
+		934CC4B32100506B00208B05 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				934CC4A52100412800208B05 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		934CC4B42100509000208B05 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				934CC4A32100412800208B05 /* PayDateViewController.swift */,
+				93F47F7E21059BFC004816FE /* SwipeTableViewController.swift */,
+				93F47F822105D036004816FE /* LedgerItemViewController.swift */,
+				932ECA3B210838C000EC52D7 /* AddLedgerItemViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		934CC4B5210050A000208B05 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				934CC4B7210052DB00208B05 /* PayDate.swift */,
+				934CC4B92100531700208B05 /* LedgerItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		934CC4B6210050B200208B05 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				934CC4A82100412900208B05 /* Assets.xcassets */,
+				934CC4AA2100412900208B05 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C9869F34BEF20AE187A074E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A89D95F23966F9FE937FE916 /* Pods-AlloSpend.debug.xcconfig */,
+				34270DF508AA04FC15D0A6C5 /* Pods-AlloSpend.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +142,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 934CC4B02100412900208B05 /* Build configuration list for PBXNativeTarget "AlloSpend" */;
 			buildPhases = (
+				C33F5C135AAC51684CAEB073 /* [CP] Check Pods Manifest.lock */,
 				934CC49A2100412800208B05 /* Sources */,
 				934CC49B2100412800208B05 /* Frameworks */,
 				934CC49C2100412800208B05 /* Resources */,
+				809B0AD17F91F9D2E8775B6E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,13 +203,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		809B0AD17F91F9D2E8775B6E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AlloSpend/Pods-AlloSpend-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AlloSpend/Pods-AlloSpend-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C33F5C135AAC51684CAEB073 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AlloSpend-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		934CC49A2100412800208B05 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				934CC4A42100412800208B05 /* ViewController.swift in Sources */,
+				934CC4B8210052DB00208B05 /* PayDate.swift in Sources */,
+				932ECA3C210838C000EC52D7 /* AddLedgerItemViewController.swift in Sources */,
+				934CC4BA2100531700208B05 /* LedgerItem.swift in Sources */,
+				93F47F832105D036004816FE /* LedgerItemViewController.swift in Sources */,
+				934CC4A42100412800208B05 /* PayDateViewController.swift in Sources */,
 				934CC4A22100412800208B05 /* AppDelegate.swift in Sources */,
+				93F47F7F21059BFC004816FE /* SwipeTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +401,7 @@
 		};
 		934CC4B12100412900208B05 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A89D95F23966F9FE937FE916 /* Pods-AlloSpend.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -296,6 +420,7 @@
 		};
 		934CC4B22100412900208B05 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34270DF508AA04FC15D0A6C5 /* Pods-AlloSpend.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
