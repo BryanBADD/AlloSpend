@@ -22,7 +22,7 @@ class LedgerItemViewController: SwipeTableViewController {
     
     func loadItems() {
         
-        ledgerItems = selectedPayDate?.items.sorted(byKeyPath: "amouont", ascending: false)
+        ledgerItems = selectedPayDate?.items.sorted(byKeyPath: "title", ascending: false)
         tableView.reloadData()
         
     }
