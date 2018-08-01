@@ -28,15 +28,15 @@ class PayDateViewController: SwipeTableViewController {
         let alert = UIAlertController(title: "Add A New Pay Date", message: "", preferredStyle: .alert)
         var textField = UITextField()
         let action = UIAlertAction(title: "Add Pay Date", style: .default) {(action) in
-            
+
             let newPayDate = PayDate()
             newPayDate.dueDate = textField.text!
             //newCategory.color = UIColor.randomFlat.hexValue()
-            
+
             self.save(payDate: newPayDate)
-            
+
         }
-        
+
         alert.addTextField { (alertTextField) in
 
             alertTextField.placeholder = "Create New Pay Date"
@@ -44,7 +44,7 @@ class PayDateViewController: SwipeTableViewController {
 
         }
         
-        alert.addAction(action)
+       alert.addAction(action)
         present(alert, animated: true, completion: nil)
         
     }
@@ -58,6 +58,7 @@ class PayDateViewController: SwipeTableViewController {
         
     }
 
+    
     //Cell for row at index path
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -119,7 +120,7 @@ class PayDateViewController: SwipeTableViewController {
     //Load PayDates
     func loadPayDates() {
         
-        payDates = realm.objects(PayDate.self).sorted(byKeyPath: "dateCreated", ascending: true)
+        payDates = realm.objects(PayDate.self).sorted(byKeyPath: "dateCreated", ascending: false)
         tableView.reloadData()
         
     }

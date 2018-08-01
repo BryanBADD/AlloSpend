@@ -9,29 +9,137 @@
 import UIKit
 import RealmSwift
 
-class LedgerItemViewController: SwipeTableViewController {
+class LedgerItemViewController: SwipeLedgerItemViewTableController {
     
     var ledgerItems: Results<LedgerItem>?
     let realm = try! Realm()
+    var runningBalance: Float = 0.00
+    
+    
     
     var selectedPayDate : PayDate? {
         didSet{
+            //TODO: Register your MessageCell.xib file here:
+            tableView.register(UINib(nibName: "ledgerItemCell", bundle: nil), forCellReuseIdentifier: "ledgerItemCell")
             loadItems()
         }
     }
     
     func loadItems() {
         
-        ledgerItems = selectedPayDate?.items.sorted(byKeyPath: "title", ascending: false)
+        ledgerItems = selectedPayDate?.items.sorted(byKeyPath: "isIncome", ascending: false)
+        runningBalance = 0.00
         tableView.reloadData()
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        title = selectedPayDate!.dueDate
+        
+    }
+    
+    //MARK: - TableView Delegate Methods
+    //Set number of rows
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return ledgerItems?.count ?? 1
+        
+    }
+    
+    //Cell for row at index path
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = super.tableView(tableView, cellForRowAt: indexPath) as! LedgerItemCell
+        
+        //cell.textLabel?.text = payDates?[indexPath.row].dueDate ?? "No Pay Dates Added."
+        
+        if let ledgerItem = ledgerItems?[indexPath.row] {
+            
+            //cell.textLabel?.textColor = ContrastColorOf(UIColor(hexString: category.color)!, returnFlat: true)
+            if ledgerItem.isIncome == true {
+                runningBalance = runningBalance + ledgerItem.amount
+            } else {
+                runningBalance = runningBalance - ledgerItem.amount
+            }
+            
+            cell.ledgerItemTitleLabel?.text = ledgerItem.title
+            cell.amountLabel?.text = "$\(ledgerItem.amount)"
+
+//            if runningBalance >= 0 {
+            cell.runningBalanceLabel.textColor = UIColor.black
+//            } else {
+//                cell.runningBalanceLabel.textColor = UIColor.red
+//            }
+
+            cell.runningBalanceLabel?.text = "$\(runningBalance)"
+            cell.accessoryType = (ledgerItem.isPaid) ? .checkmark : .none
+            if ledgerItem.isIncome == true {
+                cell.avatarImageView.image = UIImage(named: "Money")
+                cell.itemBackground.backgroundColor = UIColor.green
+            } else {
+                cell.avatarImageView.image = UIImage(named: "dollar")
+                cell.itemBackground.backgroundColor = UIColor.red
+            }
+            //cell.backgroundColor = UIColor(hexString: category.color)
+        } else {
+            cell.ledgerItemTitleLabel?.text = "No Pay Dates Added Yet!"
+            //cell.backgroundColor = UIColor(hexString: "430065")
+        }
+        
+        return cell
+        
+    }
+    
+    //TODO: Did Select Row
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let ledgerItem = ledgerItems?[indexPath.row] {
+            do {
+                try realm.write{
+                    ledgerItem.isPaid = !ledgerItem.isPaid
+                }
+            } catch{
+                print("Error saving data, \(error)")
+            }
+        }
+        
+        runningBalance = 0.00
+        tableView.reloadData()
+        
+    }
    
     //TODO: Add Ledger Item Button Pressed
     @IBAction func addLedgerItemsButtonPressed(_ sender: UIBarButtonItem) {
         
-        
+        if let currentPayDate = self.selectedPayDate {
+            do {
+                try self.realm.write {
+                    let newItem = LedgerItem()
+                    newItem.title = "SCE&G"
+                    newItem.dateCreated = Date()
+                    newItem.amount = 192.23
+                    currentPayDate.items.append(newItem)
+                }
+            } catch {
+                print("Error saving new items, \(error)")
+            }
+        }
+        runningBalance = 0.00
+        tableView.reloadData()
+    }
+    
+    override func updateModel(at indexPath: IndexPath) {
+        if let ledgerItemForDeletion = self.ledgerItems?[indexPath.row] {
+            do {
+                try self.realm.write{
+                    self.realm.delete(ledgerItemForDeletion)
+                }
+            } catch{
+                print("Error deleting category, \(error)")
+            }
+            
+        }
         
     }
 }

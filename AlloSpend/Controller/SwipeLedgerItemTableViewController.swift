@@ -1,15 +1,15 @@
 //
-//  SwipeTableViewController.swift
+//  SwipeLedgerItemViewController.swift
 //  AlloSpend
 //
-//  Created by Bryan Butz on 7/23/18.
+//  Created by Bryan Butz on 7/29/18.
 //  Copyright © 2018 Bryan Butz. All rights reserved.
 //
 
 import UIKit
 import SwipeCellKit
 
-class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegate {
+class SwipeLedgerItemTableViewController: UITableViewController, SwipeTableViewCellDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +21,11 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
     //TableView Datasource Methods
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
- 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SwipeTableViewCell
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ledgerItemCell", for: indexPath) as! SwipeTableViewCell
         cell.delegate = self
         return cell
-    
+        
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
@@ -58,3 +58,4 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
         
     }
 }
+
