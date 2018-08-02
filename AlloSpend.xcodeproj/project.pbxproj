@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9337C1ED2111F3C8003701AA /* AddLedgerItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9337C1EC2111F3C8003701AA /* AddLedgerItemViewController.swift */; };
 		933DD387210EF722001FDB30 /* SwipeLedgerItemViewTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DD386210EF722001FDB30 /* SwipeLedgerItemViewTableController.swift */; };
 		933F4F0D2111740400E42F2D /* LedgerItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933F4F0B2111740400E42F2D /* LedgerItemCell.swift */; };
 		933F4F0E2111740400E42F2D /* ledgerItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933F4F0C2111740400E42F2D /* ledgerItemCell.xib */; };
@@ -19,12 +20,13 @@
 		934CC4BA2100531700208B05 /* LedgerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934CC4B92100531700208B05 /* LedgerItem.swift */; };
 		93F47F7F21059BFC004816FE /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F47F7E21059BFC004816FE /* SwipeTableViewController.swift */; };
 		93F47F832105D036004816FE /* LedgerItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F47F822105D036004816FE /* LedgerItemViewController.swift */; };
-		D7BAE5270AB712AA07C252A6 /* Pods_AlloSpend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0728EF06BD09DF171E2BD3 /* Pods_AlloSpend.framework */; };
+		D7BAE5270AB712AA07C252A6 /* Pods_AlloSpend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0728EF06BD09DF171E2BD3 /* Pods_AlloSpend.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2E0728EF06BD09DF171E2BD3 /* Pods_AlloSpend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlloSpend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34270DF508AA04FC15D0A6C5 /* Pods-AlloSpend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlloSpend.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlloSpend/Pods-AlloSpend.release.xcconfig"; sourceTree = "<group>"; };
+		9337C1EC2111F3C8003701AA /* AddLedgerItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLedgerItemViewController.swift; sourceTree = "<group>"; };
 		933DD386210EF722001FDB30 /* SwipeLedgerItemViewTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeLedgerItemViewTableController.swift; sourceTree = "<group>"; };
 		933F4F0B2111740400E42F2D /* LedgerItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerItemCell.swift; sourceTree = "<group>"; };
 		933F4F0C2111740400E42F2D /* ledgerItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ledgerItemCell.xib; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				93F47F7E21059BFC004816FE /* SwipeTableViewController.swift */,
 				93F47F822105D036004816FE /* LedgerItemViewController.swift */,
 				933DD386210EF722001FDB30 /* SwipeLedgerItemViewTableController.swift */,
+				9337C1EC2111F3C8003701AA /* AddLedgerItemViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -218,14 +221,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AlloSpend/Pods-AlloSpend-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
@@ -263,6 +264,7 @@
 				934CC4B8210052DB00208B05 /* PayDate.swift in Sources */,
 				933DD387210EF722001FDB30 /* SwipeLedgerItemViewTableController.swift in Sources */,
 				934CC4BA2100531700208B05 /* LedgerItem.swift in Sources */,
+				9337C1ED2111F3C8003701AA /* AddLedgerItemViewController.swift in Sources */,
 				93F47F832105D036004816FE /* LedgerItemViewController.swift in Sources */,
 				933F4F0D2111740400E42F2D /* LedgerItemCell.swift in Sources */,
 				934CC4A42100412800208B05 /* PayDateViewController.swift in Sources */,

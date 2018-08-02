@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -77,10 +78,86 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="3i9-5Y-Z3d" kind="show" identifier="toAddLedgerItem" id="RVV-Xv-AUM"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5W7-cZ-fQ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5404" y="554.57271364317842"/>
+        </scene>
+        <!--Add Ledger Item View Controller-->
+        <scene sceneID="IRx-qJ-9Vr">
+            <objects>
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="3i9-5Y-Z3d" customClass="AddLedgerItemViewController" customModule="AlloSpend" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JwB-ch-4jv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="DMb-pG-k2Q">
+                                <rect key="frame" x="15" y="146" width="345" height="100"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Payor or Payee" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="7hc-lK-htN">
+                                        <rect key="frame" x="0.0" y="0.0" width="345" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter amount due" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="jz1-8a-ekn">
+                                        <rect key="frame" x="0.0" y="70" width="345" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Rv3-4M-gRT">
+                                <rect key="frame" x="15" y="286" width="197.5" height="31"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Mgb-tg-jX9">
+                                        <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is income" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fs8-d8-x62">
+                                        <rect key="frame" x="69" y="0.0" width="128.5" height="31"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8L-mQ-xH5">
+                                <rect key="frame" x="15" y="357" width="345" height="36"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveLedgerItemButton:" destination="3i9-5Y-Z3d" eventType="touchUpInside" id="ZdG-8t-izh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Rv3-4M-gRT" firstAttribute="top" secondItem="DMb-pG-k2Q" secondAttribute="bottom" constant="40" id="7Rh-Id-yHd"/>
+                            <constraint firstItem="Rv3-4M-gRT" firstAttribute="leading" secondItem="udM-oR-9Ek" secondAttribute="leading" constant="15" id="HcS-1J-KNf"/>
+                            <constraint firstItem="T8L-mQ-xH5" firstAttribute="leading" secondItem="udM-oR-9Ek" secondAttribute="leading" constant="15" id="XEd-jw-I95"/>
+                            <constraint firstItem="T8L-mQ-xH5" firstAttribute="top" secondItem="Rv3-4M-gRT" secondAttribute="bottom" constant="40" id="aEz-XD-JoN"/>
+                            <constraint firstItem="DMb-pG-k2Q" firstAttribute="leading" secondItem="udM-oR-9Ek" secondAttribute="leading" constant="15" id="cy5-MZ-tfS"/>
+                            <constraint firstItem="udM-oR-9Ek" firstAttribute="trailing" secondItem="DMb-pG-k2Q" secondAttribute="trailing" constant="15" id="jxu-he-g7j"/>
+                            <constraint firstItem="udM-oR-9Ek" firstAttribute="trailing" secondItem="T8L-mQ-xH5" secondAttribute="trailing" constant="15" id="qZw-K7-1ld"/>
+                            <constraint firstItem="DMb-pG-k2Q" firstAttribute="top" secondItem="udM-oR-9Ek" secondAttribute="top" constant="30" id="vM0-Hp-fnS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="udM-oR-9Ek"/>
+                    </view>
+                    <connections>
+                        <outlet property="ledgerItemAmountTextField" destination="jz1-8a-ekn" id="GIo-il-q7g"/>
+                        <outlet property="ledgerItemIsIncomeSwitch" destination="Mgb-tg-jX9" id="9Bw-yA-d80"/>
+                        <outlet property="ledgerItemTitleTextField" destination="7hc-lK-htN" id="4ep-zb-0GU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o5Y-4c-Bf3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6221.6000000000004" y="400.74962518740631"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YNw-N8-FMg">

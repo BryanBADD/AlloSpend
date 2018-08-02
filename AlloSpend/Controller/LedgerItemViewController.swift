@@ -28,14 +28,14 @@ class LedgerItemViewController: SwipeLedgerItemViewTableController {
     func loadItems() {
         
         ledgerItems = selectedPayDate?.items.sorted(byKeyPath: "isIncome", ascending: false)
-        runningBalance = 0.00
-        tableView.reloadData()
+        reloadTableData()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         title = selectedPayDate!.dueDate
+        loadItems()
         
     }
     
@@ -63,8 +63,9 @@ class LedgerItemViewController: SwipeLedgerItemViewTableController {
                 runningBalance = runningBalance - ledgerItem.amount
             }
             
+            let amount = ledgerItem.amount, amountFormat = ".02"
             cell.ledgerItemTitleLabel?.text = ledgerItem.title
-            cell.amountLabel?.text = "$\(ledgerItem.amount)"
+            cell.amountLabel?.text = "$\(amount)"
 
 //            if runningBalance >= 0 {
             cell.runningBalanceLabel.textColor = UIColor.black
@@ -76,10 +77,12 @@ class LedgerItemViewController: SwipeLedgerItemViewTableController {
             cell.accessoryType = (ledgerItem.isPaid) ? .checkmark : .none
             if ledgerItem.isIncome == true {
                 cell.avatarImageView.image = UIImage(named: "Money")
-                cell.itemBackground.backgroundColor = UIColor.green
+                //cell.itemBackground.backgroundColor = UIColor.green
+                cell.backgroundColor = UIColor.green
             } else {
-                cell.avatarImageView.image = UIImage(named: "dollar")
-                cell.itemBackground.backgroundColor = UIColor.red
+                cell.avatarImageView.image = UIImage(named: "checkbook")
+                //cell.itemBackground.backgroundColor = UIColor.red
+                cell.backgroundColor = UIColor.red
             }
             //cell.backgroundColor = UIColor(hexString: category.color)
         } else {
@@ -104,6 +107,12 @@ class LedgerItemViewController: SwipeLedgerItemViewTableController {
             }
         }
         
+        reloadTableData()
+        
+    }
+    
+    func reloadTableData() {
+        
         runningBalance = 0.00
         tableView.reloadData()
         
@@ -111,22 +120,33 @@ class LedgerItemViewController: SwipeLedgerItemViewTableController {
    
     //TODO: Add Ledger Item Button Pressed
     @IBAction func addLedgerItemsButtonPressed(_ sender: UIBarButtonItem) {
+      
+        performSegue(withIdentifier: "toAddLedgerItem", sender: self)
         
-        if let currentPayDate = self.selectedPayDate {
-            do {
-                try self.realm.write {
-                    let newItem = LedgerItem()
-                    newItem.title = "SCE&G"
-                    newItem.dateCreated = Date()
-                    newItem.amount = 192.23
-                    currentPayDate.items.append(newItem)
-                }
-            } catch {
-                print("Error saving new items, \(error)")
-            }
-        }
-        runningBalance = 0.00
-        tableView.reloadData()
+//        if let currentPayDate = self.selectedPayDate {
+//            do {
+//                try self.realm.write {
+//                    let newItem = LedgerItem()
+//                    newItem.title = "House of Raeford"
+//                    newItem.dateCreated = Date()
+//                    newItem.amount = 1606.21
+//                    newItem.isIncome = true
+//                    currentPayDate.items.append(newItem)
+//                }
+//            } catch {
+//                print("Error saving new items, \(error)")
+//            }
+//        }
+        
+//        reloadTableData()
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let destinationVC = segue.destination as! AddLedgerItemViewController
+        destinationVC.selectedPayDate = selectedPayDate
+                
     }
     
     override func updateModel(at indexPath: IndexPath) {
@@ -141,5 +161,17 @@ class LedgerItemViewController: SwipeLedgerItemViewTableController {
             
         }
         
+    }
+}
+
+extension Int {
+    func format(f: String) -> String {
+        return String(format: "%\(f)d", self)
+    }
+}
+
+extension Double {
+    func format(f: String) -> String {
+        return String(format: "%\(f)f", self)
     }
 }
