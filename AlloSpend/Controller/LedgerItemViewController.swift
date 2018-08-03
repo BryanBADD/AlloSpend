@@ -21,6 +21,7 @@ class LedgerItemViewController: SwipeLedgerItemViewTableController {
         didSet{
             //TODO: Register your MessageCell.xib file here:
             tableView.register(UINib(nibName: "ledgerItemCell", bundle: nil), forCellReuseIdentifier: "ledgerItemCell")
+            tableView.separatorStyle = .none
             loadItems()
         }
     }
@@ -52,8 +53,6 @@ class LedgerItemViewController: SwipeLedgerItemViewTableController {
         
         let cell = super.tableView(tableView, cellForRowAt: indexPath) as! LedgerItemCell
         
-        //cell.textLabel?.text = payDates?[indexPath.row].dueDate ?? "No Pay Dates Added."
-        
         if let ledgerItem = ledgerItems?[indexPath.row] {
             
             //cell.textLabel?.textColor = ContrastColorOf(UIColor(hexString: category.color)!, returnFlat: true)
@@ -63,9 +62,9 @@ class LedgerItemViewController: SwipeLedgerItemViewTableController {
                 runningBalance = runningBalance - ledgerItem.amount
             }
             
-            let amount = ledgerItem.amount, amountFormat = ".02"
             cell.ledgerItemTitleLabel?.text = ledgerItem.title
-            cell.amountLabel?.text = "$\(amount)"
+            let amount = String(format: "$ %.2f", ledgerItem.amount)
+            cell.amountLabel?.text = amount
 
 //            if runningBalance >= 0 {
             cell.runningBalanceLabel.textColor = UIColor.black
@@ -73,21 +72,25 @@ class LedgerItemViewController: SwipeLedgerItemViewTableController {
 //                cell.runningBalanceLabel.textColor = UIColor.red
 //            }
 
-            cell.runningBalanceLabel?.text = "$\(runningBalance)"
+            let balance = String(format: "$ %.2f", runningBalance)
+            cell.runningBalanceLabel?.text = balance
             cell.accessoryType = (ledgerItem.isPaid) ? .checkmark : .none
+            if cell.accessoryType == .checkmark {
+                cell.contentView.layer.opacity = 0.5
+            } else {
+                cell.contentView.layer.opacity = 1.0
+            }
             if ledgerItem.isIncome == true {
                 cell.avatarImageView.image = UIImage(named: "Money")
-                //cell.itemBackground.backgroundColor = UIColor.green
                 cell.backgroundColor = UIColor.green
             } else {
                 cell.avatarImageView.image = UIImage(named: "checkbook")
-                //cell.itemBackground.backgroundColor = UIColor.red
                 cell.backgroundColor = UIColor.red
             }
-            //cell.backgroundColor = UIColor(hexString: category.color)
+
         } else {
             cell.ledgerItemTitleLabel?.text = "No Pay Dates Added Yet!"
-            //cell.backgroundColor = UIColor(hexString: "430065")
+
         }
         
         return cell
@@ -123,23 +126,6 @@ class LedgerItemViewController: SwipeLedgerItemViewTableController {
       
         performSegue(withIdentifier: "toAddLedgerItem", sender: self)
         
-//        if let currentPayDate = self.selectedPayDate {
-//            do {
-//                try self.realm.write {
-//                    let newItem = LedgerItem()
-//                    newItem.title = "House of Raeford"
-//                    newItem.dateCreated = Date()
-//                    newItem.amount = 1606.21
-//                    newItem.isIncome = true
-//                    currentPayDate.items.append(newItem)
-//                }
-//            } catch {
-//                print("Error saving new items, \(error)")
-//            }
-//        }
-        
-//        reloadTableData()
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -161,17 +147,5 @@ class LedgerItemViewController: SwipeLedgerItemViewTableController {
             
         }
         
-    }
-}
-
-extension Int {
-    func format(f: String) -> String {
-        return String(format: "%\(f)d", self)
-    }
-}
-
-extension Double {
-    func format(f: String) -> String {
-        return String(format: "%\(f)f", self)
     }
 }
