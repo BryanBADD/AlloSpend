@@ -10,6 +10,81 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Add Pay Date View Controller-->
+        <scene sceneID="atQ-Y6-fLM">
+            <objects>
+                <viewController storyboardIdentifier="addPayDateView" id="xDA-jL-LGv" customClass="AddPayDateViewController" customModule="AlloSpend" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VqF-bf-fJ0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Nqe-aY-Z2f">
+                                <rect key="frame" x="0.0" y="95" width="375" height="420.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add A New Pay Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EyO-Dw-TIu">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="29.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="BOK-5y-kev">
+                                        <rect key="frame" x="0.0" y="59.5" width="375" height="216"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="555096559.10031903">
+                                            <!--2018-08-04 17:29:19 +0000-->
+                                        </date>
+                                        <connections>
+                                            <action selector="myDatePickerValueChanged:" destination="xDA-jL-LGv" eventType="valueChanged" id="ROx-ly-XeJ"/>
+                                        </connections>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIf-x0-b5j">
+                                        <rect key="frame" x="0.0" y="305.5" width="375" height="42"/>
+                                        <color key="backgroundColor" red="0.90836590530000005" green="0.22223930829999999" blue="0.21187442910000001" alpha="0.46032213179999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelButtonPressed:" destination="xDA-jL-LGv" eventType="touchUpInside" id="vRQ-pD-3zz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vt1-Ha-yst">
+                                        <rect key="frame" x="0.0" y="377.5" width="375" height="43"/>
+                                        <color key="backgroundColor" white="0.90836588539999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
+                                        <state key="normal" title="Add Pay Date"/>
+                                        <connections>
+                                            <action selector="addPayDateButtonPressed:" destination="xDA-jL-LGv" eventType="touchUpInside" id="mWH-kf-Jvg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Vt1-Ha-yst" firstAttribute="top" secondItem="zIf-x0-b5j" secondAttribute="bottom" constant="30" id="0GZ-3b-63T"/>
+                                    <constraint firstItem="EyO-Dw-TIu" firstAttribute="leading" secondItem="Nqe-aY-Z2f" secondAttribute="leading" id="1Wc-vv-xq4"/>
+                                    <constraint firstItem="BOK-5y-kev" firstAttribute="leading" secondItem="Nqe-aY-Z2f" secondAttribute="leading" id="IvT-mQ-EAb"/>
+                                    <constraint firstItem="Vt1-Ha-yst" firstAttribute="leading" secondItem="Nqe-aY-Z2f" secondAttribute="leading" id="blq-BK-q3u"/>
+                                    <constraint firstAttribute="trailing" secondItem="BOK-5y-kev" secondAttribute="trailing" id="d9r-R1-hIf"/>
+                                    <constraint firstItem="zIf-x0-b5j" firstAttribute="leading" secondItem="Nqe-aY-Z2f" secondAttribute="leading" id="kxR-vB-XQp"/>
+                                    <constraint firstItem="BOK-5y-kev" firstAttribute="top" secondItem="EyO-Dw-TIu" secondAttribute="bottom" constant="30" id="lUn-XC-jgN"/>
+                                    <constraint firstAttribute="trailing" secondItem="EyO-Dw-TIu" secondAttribute="trailing" id="mTQ-be-aOa"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vt1-Ha-yst" secondAttribute="trailing" id="nWr-im-6pA"/>
+                                    <constraint firstAttribute="trailing" secondItem="zIf-x0-b5j" secondAttribute="trailing" id="tYP-Zn-Vy6"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Nqe-aY-Z2f" firstAttribute="top" secondItem="iem-0J-NJg" secondAttribute="top" constant="75" id="IB1-2r-7YA"/>
+                            <constraint firstItem="Nqe-aY-Z2f" firstAttribute="leading" secondItem="VqF-bf-fJ0" secondAttribute="leading" id="h1w-qo-8dC"/>
+                            <constraint firstItem="iem-0J-NJg" firstAttribute="trailing" secondItem="Nqe-aY-Z2f" secondAttribute="trailing" id="nAe-Wv-oXM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="iem-0J-NJg"/>
+                    </view>
+                    <connections>
+                        <outlet property="payDatePicker" destination="BOK-5y-kev" id="aHn-jv-axU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="idy-uQ-gfD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4801" y="-85"/>
+        </scene>
         <!--Pay Dates-->
         <scene sceneID="wSn-ac-YZt">
             <objects>
@@ -41,6 +116,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addPayDateButton" destination="xlc-ba-hfi" id="JDE-2H-K6w"/>
                         <segue destination="Ccc-5B-Ids" kind="show" identifier="goToLedgerItems" id="70N-sl-8FY"/>
                     </connections>
                 </tableViewController>

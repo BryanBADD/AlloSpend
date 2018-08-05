@@ -11,7 +11,8 @@ import RealmSwift
 
 class PayDate: Object {
     
-    @objc dynamic var dueDate: String = ""
+    //@objc dynamic var dueDate: String = ""
+    @objc dynamic var dueDate: Date?
     @objc dynamic var areAllPaid: Bool = false
     @objc dynamic var dateCreated: Date?
     let items = List<LedgerItem>()

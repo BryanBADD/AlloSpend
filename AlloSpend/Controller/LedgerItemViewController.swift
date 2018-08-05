@@ -13,6 +13,7 @@ class LedgerItemViewController: SwipeLedgerItemViewTableController {
     
     var ledgerItems: Results<LedgerItem>?
     let realm = try! Realm()
+    var dateFormatter = DateFormatter()
     var runningBalance: Float = 0.00
     
     
@@ -35,7 +36,8 @@ class LedgerItemViewController: SwipeLedgerItemViewTableController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        title = selectedPayDate!.dueDate
+        dateFormatter.dateFormat = "MMM d, yyyy"
+        title = dateFormatter.string(from: (selectedPayDate?.dueDate)!)
         loadItems()
         
     }

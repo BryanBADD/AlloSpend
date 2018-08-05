@@ -18,6 +18,7 @@
 		934CC4AC2100412900208B05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 934CC4AA2100412900208B05 /* LaunchScreen.storyboard */; };
 		934CC4B8210052DB00208B05 /* PayDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934CC4B7210052DB00208B05 /* PayDate.swift */; };
 		934CC4BA2100531700208B05 /* LedgerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934CC4B92100531700208B05 /* LedgerItem.swift */; };
+		934F31752116BC8A00C54E8F /* AddPayDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934F31742116BC8A00C54E8F /* AddPayDateViewController.swift */; };
 		93F47F7F21059BFC004816FE /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F47F7E21059BFC004816FE /* SwipeTableViewController.swift */; };
 		93F47F832105D036004816FE /* LedgerItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F47F822105D036004816FE /* LedgerItemViewController.swift */; };
 		D7BAE5270AB712AA07C252A6 /* Pods_AlloSpend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0728EF06BD09DF171E2BD3 /* Pods_AlloSpend.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -39,6 +40,7 @@
 		934CC4AD2100412900208B05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		934CC4B7210052DB00208B05 /* PayDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayDate.swift; sourceTree = "<group>"; };
 		934CC4B92100531700208B05 /* LedgerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerItem.swift; sourceTree = "<group>"; };
+		934F31742116BC8A00C54E8F /* AddPayDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPayDateViewController.swift; sourceTree = "<group>"; };
 		93F47F7E21059BFC004816FE /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
 		93F47F822105D036004816FE /* LedgerItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerItemViewController.swift; sourceTree = "<group>"; };
 		A89D95F23966F9FE937FE916 /* Pods-AlloSpend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlloSpend.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlloSpend/Pods-AlloSpend.debug.xcconfig"; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				93F47F822105D036004816FE /* LedgerItemViewController.swift */,
 				933DD386210EF722001FDB30 /* SwipeLedgerItemViewTableController.swift */,
 				9337C1EC2111F3C8003701AA /* AddLedgerItemViewController.swift */,
+				934F31742116BC8A00C54E8F /* AddPayDateViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				934CC4B8210052DB00208B05 /* PayDate.swift in Sources */,
 				933DD387210EF722001FDB30 /* SwipeLedgerItemViewTableController.swift in Sources */,
 				934CC4BA2100531700208B05 /* LedgerItem.swift in Sources */,
+				934F31752116BC8A00C54E8F /* AddPayDateViewController.swift in Sources */,
 				9337C1ED2111F3C8003701AA /* AddLedgerItemViewController.swift in Sources */,
 				93F47F832105D036004816FE /* LedgerItemViewController.swift in Sources */,
 				933F4F0D2111740400E42F2D /* LedgerItemCell.swift in Sources */,
