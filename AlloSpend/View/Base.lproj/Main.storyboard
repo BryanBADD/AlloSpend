@@ -165,7 +165,7 @@
         <!--Add Ledger Item View Controller-->
         <scene sceneID="IRx-qJ-9Vr">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="3i9-5Y-Z3d" customClass="AddLedgerItemViewController" customModule="AlloSpend" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addLedgerItemView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3i9-5Y-Z3d" customClass="AddLedgerItemViewController" customModule="AlloSpend" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JwB-ch-4jv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -211,6 +211,17 @@
                                     <action selector="saveLedgerItemButton:" destination="3i9-5Y-Z3d" eventType="touchUpInside" id="ZdG-8t-izh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rq6-Tl-SbN">
+                                <rect key="frame" x="15" y="357" width="345" height="36"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Update"/>
+                                <connections>
+                                    <action selector="saveLedgerItemButton:" destination="3i9-5Y-Z3d" eventType="touchUpInside" id="yvw-fH-XNb"/>
+                                    <action selector="updateButtonPressed:" destination="3i9-5Y-Z3d" eventType="touchUpInside" id="1j9-iL-vKU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -218,10 +229,14 @@
                             <constraint firstItem="Rv3-4M-gRT" firstAttribute="leading" secondItem="udM-oR-9Ek" secondAttribute="leading" constant="15" id="HcS-1J-KNf"/>
                             <constraint firstItem="T8L-mQ-xH5" firstAttribute="leading" secondItem="udM-oR-9Ek" secondAttribute="leading" constant="15" id="XEd-jw-I95"/>
                             <constraint firstItem="T8L-mQ-xH5" firstAttribute="top" secondItem="Rv3-4M-gRT" secondAttribute="bottom" constant="40" id="aEz-XD-JoN"/>
+                            <constraint firstItem="Rq6-Tl-SbN" firstAttribute="leading" secondItem="udM-oR-9Ek" secondAttribute="leading" constant="15" id="cCE-gV-9Fb"/>
                             <constraint firstItem="DMb-pG-k2Q" firstAttribute="leading" secondItem="udM-oR-9Ek" secondAttribute="leading" constant="15" id="cy5-MZ-tfS"/>
+                            <constraint firstItem="udM-oR-9Ek" firstAttribute="trailing" secondItem="Rq6-Tl-SbN" secondAttribute="trailing" constant="15" id="dGU-4N-8Av"/>
                             <constraint firstItem="udM-oR-9Ek" firstAttribute="trailing" secondItem="DMb-pG-k2Q" secondAttribute="trailing" constant="15" id="jxu-he-g7j"/>
                             <constraint firstItem="udM-oR-9Ek" firstAttribute="trailing" secondItem="T8L-mQ-xH5" secondAttribute="trailing" constant="15" id="qZw-K7-1ld"/>
+                            <constraint firstItem="Rq6-Tl-SbN" firstAttribute="top" secondItem="Rv3-4M-gRT" secondAttribute="bottom" constant="40" id="sbF-Mf-OgI"/>
                             <constraint firstItem="DMb-pG-k2Q" firstAttribute="top" secondItem="udM-oR-9Ek" secondAttribute="top" constant="30" id="vM0-Hp-fnS"/>
+                            <constraint firstItem="udM-oR-9Ek" firstAttribute="trailing" secondItem="Rq6-Tl-SbN" secondAttribute="trailing" constant="15" id="x2a-Xh-Sa7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="udM-oR-9Ek"/>
                     </view>
@@ -229,6 +244,8 @@
                         <outlet property="ledgerItemAmountTextField" destination="jz1-8a-ekn" id="GIo-il-q7g"/>
                         <outlet property="ledgerItemIsIncomeSwitch" destination="Mgb-tg-jX9" id="9Bw-yA-d80"/>
                         <outlet property="ledgerItemTitleTextField" destination="7hc-lK-htN" id="4ep-zb-0GU"/>
+                        <outlet property="saveButton" destination="T8L-mQ-xH5" id="lrU-NX-W17"/>
+                        <outlet property="updateButton" destination="Rq6-Tl-SbN" id="1k1-Mq-RTW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o5Y-4c-Bf3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -238,13 +255,17 @@
         <!--Navigation Controller-->
         <scene sceneID="YNw-N8-FMg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eNE-RM-afE" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="eNE-RM-afE" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Cye-lj-wbl">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gG4-Bb-9qI">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="3cl-Ac-meu" kind="relationship" relationship="rootViewController" id="leO-ZC-lLz"/>
                     </connections>

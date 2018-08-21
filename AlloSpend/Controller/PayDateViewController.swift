@@ -31,36 +31,7 @@ class PayDateViewController: SwipeTableViewController {
         let DestVC = storyboard.instantiateViewController(withIdentifier: "addPayDateView") as! AddPayDateViewController //UINavigationController
         self.present(DestVC, animated: true, completion: nil)
         
-//        performSegue(withIdentifier: "goToAddPayDate", sender: self)
-//        let alert = UIAlertController(title: "Add A New Pay Date", message: "", preferredStyle: .alert)
-//        var textField = UITextField()
-//        let action = UIAlertAction(title: "Add Pay Date", style: .default) {(action) in
-//
-//            let newPayDate = PayDate()
-//            self.dateFormatter.dateFormat = "MMM d, yyyy"
-//            let convertedDate = self.dateFormatter.date(from: textField.text!)
-//            newPayDate.dueDate = convertedDate
-//            //newCategory.color = UIColor.randomFlat.hexValue()
-//
-//            if convertedDate == nil {
-//                print("Error converting date!")
-//            } else {
-//                self.save(payDate: newPayDate)
-//            }
-//
-//
-//        }
-//
-//        alert.addTextField { (alertTextField) in
-//
-//            alertTextField.placeholder = "Create New Pay Date"
-//            textField = alertTextField
-//
-//        }
-//
-//       alert.addAction(action)
-//        present(alert, animated: true, completion: nil)
-//
+
     }
     
     //MARK: - TableView Data Source Methods
@@ -78,17 +49,13 @@ class PayDateViewController: SwipeTableViewController {
         
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         
-//        cell.textLabel?.text = payDates?[indexPath.row].dueDate ?? "No Pay Dates Added."
-        
         if let payDate = payDates?[indexPath.row] {
             //cell.textLabel?.textColor = ContrastColorOf(UIColor(hexString: category.color)!, returnFlat: true)
             dateFormatter.dateFormat = "MMM d, yyyy"
             let convertedDate = dateFormatter.string(from: payDate.dueDate!)
             cell.textLabel?.text = convertedDate
-            //cell.backgroundColor = UIColor(hexString: category.color)
         } else {
             cell.textLabel?.text = "No Pay Dates Added Yet!"
-            //cell.backgroundColor = UIColor(hexString: "430065")
         }
         
         return cell
@@ -99,19 +66,12 @@ class PayDateViewController: SwipeTableViewController {
         //TODO: Did Select Row
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        //Code on next line animates the row selection
-        //tableView.deselectRow(at: indexPath, animated: true)
-        
         performSegue(withIdentifier: "goToLedgerItems", sender: self)
         
     }
     
     //Prepare for segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-//        if let vc = segue.destination as? AddPayDateViewController {
-//            vc.popoverPresentationController?.barButtonItem = addPayDateButton
-//        }
         
         let destinationVC = segue.destination as! LedgerItemViewController
         if let indexPath = tableView.indexPathForSelectedRow {

@@ -15,6 +15,7 @@ class LedgerItemViewController: SwipeLedgerItemViewTableController {
     let realm = try! Realm()
     var dateFormatter = DateFormatter()
     var runningBalance: Float = 0.00
+    var ledgerItemToEdit: LedgerItem?
     
     
     
@@ -57,7 +58,6 @@ class LedgerItemViewController: SwipeLedgerItemViewTableController {
         
         if let ledgerItem = ledgerItems?[indexPath.row] {
             
-            //cell.textLabel?.textColor = ContrastColorOf(UIColor(hexString: category.color)!, returnFlat: true)
             if ledgerItem.isIncome == true {
                 runningBalance = runningBalance + ledgerItem.amount
             } else {
@@ -67,18 +67,13 @@ class LedgerItemViewController: SwipeLedgerItemViewTableController {
             cell.ledgerItemTitleLabel?.text = ledgerItem.title
             let amount = String(format: "$ %.2f", ledgerItem.amount)
             cell.amountLabel?.text = amount
-
-//            if runningBalance >= 0 {
             cell.runningBalanceLabel.textColor = UIColor.black
-//            } else {
-//                cell.runningBalanceLabel.textColor = UIColor.red
-//            }
 
             let balance = String(format: "$ %.2f", runningBalance)
             cell.runningBalanceLabel?.text = balance
             cell.accessoryType = (ledgerItem.isPaid) ? .checkmark : .none
             if cell.accessoryType == .checkmark {
-                cell.contentView.layer.opacity = 0.5
+                cell.contentView.layer.opacity = 0.3
             } else {
                 cell.contentView.layer.opacity = 1.0
             }
@@ -126,6 +121,7 @@ class LedgerItemViewController: SwipeLedgerItemViewTableController {
     //TODO: Add Ledger Item Button Pressed
     @IBAction func addLedgerItemsButtonPressed(_ sender: UIBarButtonItem) {
       
+        ledgerItemToEdit = nil
         performSegue(withIdentifier: "toAddLedgerItem", sender: self)
         
     }
@@ -134,8 +130,21 @@ class LedgerItemViewController: SwipeLedgerItemViewTableController {
         
         let destinationVC = segue.destination as! AddLedgerItemViewController
         destinationVC.selectedPayDate = selectedPayDate
-                
+        destinationVC.ledgerItemForEditing = ledgerItemToEdit
+        
     }
+    
+//    func setLedgerItemForEditing(at indexPath: IndexPath) -> LedgerItem {
+//
+//        if ledgerItemForEditing == self.ledgerItems?[indexPath.row] {
+//            print("Ledger item was set")
+//        } else {
+//            print("No ledger item has been set")
+//        }
+//
+//        return ledgerItemForEditing
+//
+//    }
     
     override func updateModel(at indexPath: IndexPath) {
         if let ledgerItemForDeletion = self.ledgerItems?[indexPath.row] {
@@ -149,5 +158,24 @@ class LedgerItemViewController: SwipeLedgerItemViewTableController {
             
         }
         
+        reloadTableData()
+        
     }
+    
+    override func editButtonPressed(at indexPath: IndexPath) {
+        
+        if let selectedLedgerItem = self.ledgerItems?[indexPath.row] {
+            ledgerItemToEdit = selectedLedgerItem
+            print("Item for editing set")
+            print(selectedLedgerItem)
+            performSegue(withIdentifier: "toAddLedgerItem", sender: self)
+        } else {
+            print("Item for editing not set")
+        }
+        //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //        let DestVC = storyboard.instantiateViewController(withIdentifier: "addLedgerItemView") as! AddLedgerItemViewController //UINavigationController
+        
+
+    }
+    
 }
