@@ -108,6 +108,11 @@
                             <outlet property="delegate" destination="3cl-Ac-meu" id="C9c-QP-OYT"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Click the + button to add a Pay Date" id="EsH-Vz-0Ev">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Pay Dates" largeTitleDisplayMode="always" id="r4L-9K-nWf">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xlc-ba-hfi">
                             <connections>
@@ -115,6 +120,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addPayDateButton" destination="xlc-ba-hfi" id="JDE-2H-K6w"/>
                         <segue destination="Ccc-5B-Ids" kind="show" identifier="goToLedgerItems" id="70N-sl-8FY"/>
@@ -147,6 +153,11 @@
                             <outlet property="delegate" destination="Ccc-5B-Ids" id="sir-9h-A4C"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Click the + button to add an item" id="mGE-up-dSi">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Ledger Items" id="h8i-x8-ga7">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="t62-aN-syg">
                             <connections>
@@ -154,6 +165,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="3i9-5Y-Z3d" kind="show" identifier="toAddLedgerItem" id="RVV-Xv-AUM"/>
                     </connections>

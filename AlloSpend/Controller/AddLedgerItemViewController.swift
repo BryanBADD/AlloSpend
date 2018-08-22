@@ -27,7 +27,6 @@ class AddLedgerItemViewController: UIViewController {
     var ledgerItemForEditing: LedgerItem? {
         didSet{
             if ledgerItemForEditing != nil {
-            print("The item for editing is: \(String(describing: ledgerItemForEditing))")
             itemTitle = ledgerItemForEditing!.title
             amount = String(format: "%.2f", (ledgerItemForEditing!.amount))
             isIncome = (ledgerItemForEditing?.isIncome)!
@@ -43,12 +42,10 @@ class AddLedgerItemViewController: UIViewController {
         ledgerItemAmountTextField.text = amount
         ledgerItemIsIncomeSwitch.isOn = isIncome
         if updateItem == true {
-            print("Update Item")
             updateButton.isEnabled = true
             saveButton.isEnabled = false
             saveButton.isHidden = true
         } else {
-            print("Add Item")
             updateButton.isEnabled = false
             updateButton.isHidden = true
             saveButton.isEnabled = true

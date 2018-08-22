@@ -94,6 +94,31 @@ class LedgerItemViewController: SwipeLedgerItemViewTableController {
         
     }
     
+    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //print(indexPath.row, ledgerItems?.count)
+        if (ledgerItems?.count)! < indexPath.row + 1 {
+            print("Count is less than index path")
+        } else {
+            print("Count is greater than or equal to index path")
+            let ledgerItem = ledgerItems?[indexPath.row]
+            if ledgerItem?.isIncome == true {
+                runningBalance = runningBalance - (ledgerItem?.amount)!
+            } else {
+                runningBalance = runningBalance + (ledgerItem?.amount)!
+            }
+        }
+        
+        //        if let ledgerItem = ledgerItems?[indexPath.row] {
+//
+//        }
+    }
+    
+//    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        print("The cell at IndexPath \(indexPath) will be visible")
+//
+//        }
+//    }
+
     //TODO: Did Select Row
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -134,18 +159,6 @@ class LedgerItemViewController: SwipeLedgerItemViewTableController {
         
     }
     
-//    func setLedgerItemForEditing(at indexPath: IndexPath) -> LedgerItem {
-//
-//        if ledgerItemForEditing == self.ledgerItems?[indexPath.row] {
-//            print("Ledger item was set")
-//        } else {
-//            print("No ledger item has been set")
-//        }
-//
-//        return ledgerItemForEditing
-//
-//    }
-    
     override func updateModel(at indexPath: IndexPath) {
         if let ledgerItemForDeletion = self.ledgerItems?[indexPath.row] {
             do {
@@ -166,16 +179,11 @@ class LedgerItemViewController: SwipeLedgerItemViewTableController {
         
         if let selectedLedgerItem = self.ledgerItems?[indexPath.row] {
             ledgerItemToEdit = selectedLedgerItem
-            print("Item for editing set")
             print(selectedLedgerItem)
             performSegue(withIdentifier: "toAddLedgerItem", sender: self)
         } else {
             print("Item for editing not set")
         }
-        //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        //        let DestVC = storyboard.instantiateViewController(withIdentifier: "addLedgerItemView") as! AddLedgerItemViewController //UINavigationController
-        
-
     }
     
 }
